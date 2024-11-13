@@ -1,0 +1,6 @@
+@dofus_unity_rendering_back_HostAddress = http://localhost:5110
+
+GET {{dofus_unity_rendering_back_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
