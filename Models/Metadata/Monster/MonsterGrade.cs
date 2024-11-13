@@ -1,4 +1,6 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices;
 
 namespace dofus_unity_rendering_back.Models.Metadata.Monster
 {
@@ -8,53 +10,54 @@ namespace dofus_unity_rendering_back.Models.Metadata.Monster
     {
         public MonsterBonusCharacteristics bonusCharacteristics;
 
-        public int grade;
+        public int grade { get; set; }
 
-        public ushort monsterId;
+        [ForeignKey("Monsters")]
+        public ushort monsterId { get; set; }
 
-        public ushort level;
+        public ushort level { get; set; }
 
-        public int lifePoints;
+        public int lifePoints { get; set; }
 
-        public short actionPoints;
+        public short actionPoints { get; set; }
 
-        public short movementPoints;
+        public short movementPoints { get; set; }
 
-        public int vitality;
+        public int vitality { get; set; }
 
-        public short paDodge;
+        public short paDodge { get; set; }
 
-        public short pmDodge;
+        public short pmDodge { get; set; }
 
-        public ushort wisdom;
+        public ushort wisdom { get; set; }
 
-        public short earthResistance;
+        public short earthResistance { get; set; }
 
-        public short airResistance;
+        public short airResistance { get; set; }
 
-        public short fireResistance;
+        public short fireResistance { get; set; }
 
-        public short waterResistance;
+        public short waterResistance { get; set; }
 
-        public short neutralResistance;
+        public short neutralResistance { get; set; }
 
-        public int gradeXp;
+        public int gradeXp { get; set; }
 
-        public byte damageReflect;
+        public byte damageReflect { get; set; }
 
-        public byte hiddenLevel;
+        public byte hiddenLevel { get; set; }
 
-        public ushort strength;
+        public ushort strength { get; set; }
 
-        public ushort intelligence;
+        public ushort intelligence { get; set; }
 
-        public ushort chance;
+        public ushort chance { get; set; }
 
-        public ushort agility;
+        public ushort agility { get; set; }
 
-        public int startingSpellId;
+        public int startingSpellId { get; set; }
 
-        public sbyte bonusRange;
+        public sbyte bonusRange { get; set; }
 
         public override string ToString()
         {

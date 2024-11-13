@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using dofus_unity_rendering_back.Models.Metadata.Effect.Instance;
+using dofus_unity_rendering_back.Models.Metadata.Enums;
 
 namespace dofus_unity_rendering_back.Models.Metadata.Spell
 {
@@ -7,7 +8,6 @@ namespace dofus_unity_rendering_back.Models.Metadata.Spell
     [Serializable]
     public class SpellLevels
     {
-        [SerializeField]
         private SpellLevelFlags m_flags;
 
         public int id;

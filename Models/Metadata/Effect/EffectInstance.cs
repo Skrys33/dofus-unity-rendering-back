@@ -55,12 +55,12 @@ namespace dofus_unity_rendering_back.Models.Metadata.Effect
 
             public T GetMemoizedValue<T>(ActionId effectId, ref T localCachedCopy, T undefinedSentinel, Func<T> populate)
             {
-                return (T)null;
+                return default(T);
             }
 
             public T GetMemoizedValue<T>(ActionId effectId, ref T localCachedCopy, Func<T, bool> isAlreadyPopulated, Func<T> populate)
             {
-                return (T)null;
+                return default(T);
             }
 
             public MemoizedValues()
@@ -76,7 +76,6 @@ namespace dofus_unity_rendering_back.Models.Metadata.Effect
 
         private const sbyte UninitializedBonusType = -2;
 
-        [SerializeField]
         private EffectInstanceFlags m_flags;
 
         public int effectUid;

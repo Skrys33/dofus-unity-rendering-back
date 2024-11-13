@@ -9,7 +9,7 @@ namespace dofus_unity_rendering_back.Models
 
         public T GetObjectById(long id)
         {
-            return (T)null;
+            return default(T);
         }
 
         public List<T> GetObjects()

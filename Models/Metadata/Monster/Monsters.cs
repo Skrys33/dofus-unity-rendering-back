@@ -1,4 +1,6 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 using dofus_unity_rendering_back.Models.Interfaces;
 using dofus_unity_rendering_back.Models.Types;
 
@@ -10,59 +12,60 @@ namespace dofus_unity_rendering_back.Models.Metadata.Monster
         // [SerializeField]
         private MonsterFlags m_flags;
 
-        public ushort id;
+        [Key]
+        public ushort id { get; set; }
 
-        public int nameId;
+        public int nameId{ get; set; }
 
-        public ushort gfxId;
+        public ushort gfxId{ get; set; }
 
-        public short race;
+        public short race{ get; set; }
 
-        public List<MonsterGrade> grades;
+        public List<MonsterGrade> grades { get; set; }
 
-        public string look;
+        public string look{ get; set; }
 
-        public List<AnimFunMonsterData> animFunList;
+        public List<AnimFunMonsterData> animFunList{ get; set; }
 
-        public List<MonsterDrop> drops;
+        public List<MonsterDrop> drops{ get; set; }
 
-        public List<MonsterDrop> temporisDrops;
+        public List<MonsterDrop> temporisDrops{ get; set; }
 
-        public List<uint> subareas;
+        public List<uint> subareas{ get; set; }
 
-        public List<int> spells;
+        public List<int> spells{ get; set; }
 
-        public List<string> spellGrades;
+        public List<string> spellGrades{ get; set; }
 
-        public ushort favoriteSubareaId;
+        public ushort favoriteSubareaId{ get; set; }
 
-        public ushort correspondingMiniBossId;
+        public ushort correspondingMiniBossId{ get; set; }
 
-        public sbyte speedAdjust;
+        public sbyte speedAdjust{ get; set; }
 
-        public sbyte creatureBoneId;
+        public sbyte creatureBoneId{ get; set; }
 
-        public List<uint> incompatibleIdols;
+        public List<uint> incompatibleIdols{ get; set; }
 
-        public List<uint> incompatibleChallenges;
+        public List<uint> incompatibleChallenges{ get; set; }
 
-        public byte aggressiveZoneSize;
+        public byte aggressiveZoneSize{ get; set; }
 
-        public short aggressiveLevelDiff;
+        public short aggressiveLevelDiff{ get; set; }
 
-        public string aggressiveImmunityCriterion;
+        public string aggressiveImmunityCriterion{ get; set; }
 
-        public short aggressiveAttackDelay;
+        public short aggressiveAttackDelay{ get; set; }
 
-        public byte scaleGradeRef;
+        public byte scaleGradeRef{ get; set; }
 
         public List<WrappedFloatList> characRatios;
 
-        private string m_name;
+        private string m_name{ get; set; }
 
-        private string m_unDiacriticalName;
+        private string m_unDiacriticalName{ get; set; }
 
-        private MonsterRaces m_type;
+        private MonsterRaces m_type{ get; set; }
 
         public bool useSummonSlot
         {

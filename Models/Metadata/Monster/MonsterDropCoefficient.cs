@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices;
 
 namespace dofus_unity_rendering_back.Models.Metadata.Monster
 {
@@ -6,13 +7,15 @@ namespace dofus_unity_rendering_back.Models.Metadata.Monster
     [Serializable]
     public class MonsterDropCoefficient
     {
-        public int monsterId;
+        [ForeignKey("Monsters")]
+        public int monsterId { get; set; }
 
-        public int monsterGrade;
+        [ForeignKey("MonsterGrade")]
+        public int monsterGrade { get; set; }
 
-        public float dropCoefficient;
+        public float dropCoefficient{ get; set; }
 
-        public string criteria;
+        public string criteria{ get; set; }
 
         [NonSerialized]
         private Monsters m_monster;

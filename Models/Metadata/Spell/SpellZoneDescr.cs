@@ -6,7 +6,6 @@ namespace dofus_unity_rendering_back.Models.Metadata.Spell
 
     [Serializable]
     [StructLayout(LayoutKind.Auto)]
-    [Token(Token = "0x2000064")]
     public struct SpellZoneDescr
     {
         public const byte DefaultParam1 = 1;

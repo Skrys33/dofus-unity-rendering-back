@@ -1,3 +1,6 @@
+using dofus_unity_rendering_back.Models.Interfaces;
+using dofus_unity_rendering_back.Models.Metadata.Enums;
+
 namespace dofus_unity_rendering_back.Models.Metadata.Spell
 {
 
@@ -15,7 +18,6 @@ namespace dofus_unity_rendering_back.Models.Metadata.Spell
             }
         }
 
-        [SerializeField]
         private SpellFlags m_flags;
 
         private MemoizedValues m_memoizedValues;
