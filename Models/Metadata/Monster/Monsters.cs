@@ -1,11 +1,13 @@
 ﻿using System.Runtime.InteropServices;
+using dofus_unity_rendering_back.Models.Interfaces;
+using dofus_unity_rendering_back.Models.Types;
 
 namespace dofus_unity_rendering_back.Models.Metadata.Monster
 {
     [Serializable]
     public class Monsters : IAdminSelectionEntry
     {
-        [SerializeField]
+        // [SerializeField]
         private MonsterFlags m_flags;
 
         public ushort id;

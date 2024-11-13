@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using dofus_unity_rendering_back.Models.Interfaces;
 
 namespace dofus_unity_rendering_back.Models.Metadata.Monster
 {

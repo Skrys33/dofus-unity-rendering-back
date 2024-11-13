@@ -1,6 +1,25 @@
-﻿namespace dofus_unity_rendering_back.Models
+﻿using System.Runtime.InteropServices;
+
+namespace dofus_unity_rendering_back.Models
 {
-    public class MetadataRoot
+    // [PreferBinarySerialization]
+    public class MetadataRoot<T> : IDataContainer // ScriptableObject
     {
+        public MetadataDictionaryContainer<T> objectsById;
+
+        public T GetObjectById(long id)
+        {
+            return (T)null;
+        }
+
+        public List<T> GetObjects()
+        {
+            return null;
+        }
+
+        public MetadataRoot()
+        {
+        }
     }
+
 }

@@ -16,7 +16,5 @@ namespace dofus_unity_rendering_back
             // connect to postgres with connection string from app settings
             options.UseNpgsql(Configuration.GetConnectionString("WebApiDatabase"));
         }
-
-        public DbSet<Employee> Employees { get; set; }
     }
 }
