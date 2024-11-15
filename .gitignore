@@ -1045,5 +1045,7 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 
+# Docker
+.env
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Csharp,ASPNETCore,VisualStudio,c#
