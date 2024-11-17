@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 using dofus_unity_rendering_back.Models.Interfaces;
+using dofus_unity_rendering_back.Models.Metadata.Spell;
 using dofus_unity_rendering_back.Models.Types;
 
 namespace dofus_unity_rendering_back.Models.Metadata.Monster
@@ -34,6 +36,9 @@ namespace dofus_unity_rendering_back.Models.Metadata.Monster
         public List<uint> subareas{ get; set; }
 
         public List<int> spells{ get; set; }
+
+        [NotMapped]
+        public List<Spells> spellsData { get; set; } = new List<Spells>();
 
         public List<string> spellGrades{ get; set; }
 
@@ -243,13 +248,9 @@ namespace dofus_unity_rendering_back.Models.Metadata.Monster
             }
         }
 
-        public string name
-        {
-            get
-            {
-                return null;
-            }
-        }
+
+        [NotMapped]
+        public string name { get; set; }
 
         public string unDiacriticalName
         {

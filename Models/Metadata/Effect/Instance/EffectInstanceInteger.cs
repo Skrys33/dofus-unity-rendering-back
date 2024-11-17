@@ -7,22 +7,8 @@ namespace dofus_unity_rendering_back.Models.Metadata.Effect.Instance
     [Serializable]
     public class EffectInstanceInteger : EffectInstance
     {
-        public int value;
+        public int value { get; set; }
 
-        public override object parameter0
-        {
-            get
-            {
-                return null;
-            }
-        }
-
-        public override object parameter2
-        {
-            set
-            {
-            }
-        }
 
         public override EffectInstance Clone()
         {

@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json;
 
@@ -7,54 +8,55 @@ namespace dofus_unity_rendering_back.Models.Metadata.Effect
     [Serializable]
     public class Effects
     {
-        public int id;
+        [Key]
+        public int id { get; set; }
 
-        public int descriptionId;
+        public int descriptionId { get; set; }
 
-        public int iconId;
+        public int iconId { get; set; }
 
-        public int characteristic;
+        public int characteristic { get; set; }
 
-        public int category;
+        public int category { get; set; }
 
         [JsonProperty("operator")]
         public string characteristicOperator;
 
-        public bool showInTooltip;
+        public bool showInTooltip { get; set; }
 
-        public bool useDice;
+        public bool useDice { get; set; }
 
-        public bool forceMinMax;
+        public bool forceMinMax { get; set; }
 
-        public bool boost;
+        public bool boost { get; set; }
 
-        public bool active;
+        public bool active { get; set; }
 
-        public int oppositeId;
+        public int oppositeId { get; set; }
 
-        public string theoreticalDescriptionId;
+        public string theoreticalDescriptionId { get; set; }
 
-        public int theoreticalPattern;
+        public int theoreticalPattern { get; set; }
 
-        public bool showInSet;
+        public bool showInSet { get; set; }
 
-        public sbyte bonusType;
+        public sbyte bonusType { get; set; }
 
-        public bool useInFight;
+        public bool useInFight { get; set; }
 
-        public int effectPriority;
+        public int effectPriority { get; set; }
 
-        public float effectPowerRate;
+        public float effectPowerRate { get; set; }
 
-        public int elementId;
+        public int elementId { get; set; }
 
-        public bool isInPercent;
+        public bool isInPercent { get; set; }
 
-        public bool hideValueInTooltip;
+        public bool hideValueInTooltip { get; set; }
 
-        private string m_description;
+        private string m_description { get; set; }
 
-        private string m_theoreticalDescription;
+        private string m_theoreticalDescription { get; set; }
 
         public string description
         {

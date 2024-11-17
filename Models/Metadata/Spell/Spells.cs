@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using dofus_unity_rendering_back.Models.Interfaces;
 using dofus_unity_rendering_back.Models.Metadata.Enums;
 
@@ -18,31 +20,34 @@ namespace dofus_unity_rendering_back.Models.Metadata.Spell
             }
         }
 
-        private SpellFlags m_flags;
+        private SpellFlags m_flags { get; set; }
 
         private MemoizedValues m_memoizedValues;
 
-        public ushort id;
+        [Key]
+        public ushort id { get; set; }
 
-        public int nameId;
+        public int nameId { get; set; }
 
-        public int descriptionId;
+        public int descriptionId { get; set; }
+        [NotMapped]
+        public string description { get; set; }
 
-        public ushort typeId;
+        public ushort typeId { get; set; }
 
-        public byte order;
+        public byte order { get; set; }
 
-        public string scriptParams;
+        public string scriptParams { get; set; }
 
-        public string scriptParamsCritical;
+        public string scriptParamsCritical { get; set; }
 
-        public byte scriptId;
+        public byte scriptId { get; set; }
 
-        public byte scriptIdCritical;
+        public byte scriptIdCritical { get; set; }
 
-        public short iconId;
+        public short iconId { get; set; }
 
-        public List<uint> spellLevels;
+        public List<uint> spellLevels { get; set; }
 
         public List<BoundScriptUsageData> boundScriptUsageData;
 
@@ -50,7 +55,7 @@ namespace dofus_unity_rendering_back.Models.Metadata.Spell
 
         public SpellZoneDescr basePreviewZoneDescr;
 
-        public string adminName;
+        public string adminName { get; set; }
         public bool verboseCast
         {
             get
@@ -95,22 +100,13 @@ namespace dofus_unity_rendering_back.Models.Metadata.Spell
             }
         }
 
-        public string name
-        {
-            get
-            {
-                return null;
-            }
-        }
+        [NotMapped]
+        public string name { get; set; }
 
-        public List<SpellLevels> spellLevelsData
-        {
-            get
-            {
-                return null;
-            }
-        }
+        [NotMapped]
+        public List<SpellLevels> spellLevelsData { get; set; }
 
+        [NotMapped]
         public SpellVariants spellVariant
         {
             get

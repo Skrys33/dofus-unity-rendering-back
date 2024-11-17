@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using dofus_unity_rendering_back.Models.Metadata.Enums;
 using dofus_unity_rendering_back.Models.Metadata.Spell;
 
@@ -7,13 +9,17 @@ namespace dofus_unity_rendering_back.Models.Metadata.Effect
     [Serializable]
     public class EffectInstance
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         private class MemoizedValues
         {
-            public int category;
+            public int category { get; set; }
 
-            public sbyte bonusType;
+            public sbyte bonusType { get; set; }
 
-            public Effects effectData;
+            [NotMapped]
+            public Effects effectData { get; set; }
 
             public bool? showSet;
 
@@ -23,35 +29,26 @@ namespace dofus_unity_rendering_back.Models.Metadata.Effect
 
             public bool? useInFight;
 
-            public sbyte durationStringValue;
+            public sbyte durationStringValue { get; set; }
 
-            public byte delayStringValue;
+            public byte delayStringValue { get; set; }
 
-            public int priority;
+            public int priority { get; set; }
 
-            public string durationString;
+            public string durationString { get; set; }
 
-            public string description;
+            public string description { get; set; }
 
-            public string theoreticalDescription;
+            public string theoreticalDescription { get; set; }
 
-            public string descriptionForTooltip;
+            public string descriptionForTooltip { get; set; }
 
-            public string theoricDescriptionForTooltip;
+            public string theoricDescriptionForTooltip { get; set; }
 
-            public string theoreticalShortDescriptionForTooltip;
+            public string theoreticalShortDescriptionForTooltip { get; set; }
 
-            public string characteristicOperator;
+            public string characteristicOperator { get; set; }
 
-            public object parameter0;
-
-            public object parameter1;
-
-            public object parameter2;
-
-            public object parameter3;
-
-            public object parameter4;
 
             public T GetMemoizedValue<T>(ActionId effectId, ref T localCachedCopy, T undefinedSentinel, Func<T> populate)
             {
@@ -76,37 +73,38 @@ namespace dofus_unity_rendering_back.Models.Metadata.Effect
 
         private const sbyte UninitializedBonusType = -2;
 
-        private EffectInstanceFlags m_flags;
+        private EffectInstanceFlags m_flags { get; set; }
 
-        public int effectUid;
+        public int effectUid { get; set; }
 
-        public short baseEffectId;
+        public short baseEffectId { get; set; }
 
-        public ActionId effectId;
+        public ActionId effectId { get; set; }
 
-        public int order;
+        public int order { get; set; }
 
-        public short targetId;
+        public short targetId { get; set; }
 
-        public string targetMask;
+        public string targetMask { get; set; }
 
-        public sbyte duration;
+        public sbyte duration { get; set; }
 
-        public float random;
+        public float random { get; set; }
 
-        public short group;
+        public short group { get; set; }
 
-        public short modificator;
+        public short modificator { get; set; }
 
-        public byte dispellable;
+        public byte dispellable { get; set; }
 
-        public byte delay;
+        public byte delay { get; set; }
 
-        public string triggers;
+        public string triggers { get; set; }
 
-        public sbyte effectElement;
+        public sbyte effectElement { get; set; }
 
-        public short spellId;
+        [ForeignKey("Spells")]
+        public short spellId { get; set; }
 
         public SpellZoneDescr zoneDescr;
 
@@ -265,60 +263,6 @@ namespace dofus_unity_rendering_back.Models.Metadata.Effect
             }
         }
 
-        public virtual object parameter0
-        {
-            get
-            {
-                return null;
-            }
-            set
-            {
-            }
-        }
-
-        public virtual object parameter1
-        {
-            get
-            {
-                return null;
-            }
-            set
-            {
-            }
-        }
-
-        public virtual object parameter2
-        {
-            get
-            {
-                return null;
-            }
-            set
-            {
-            }
-        }
-
-        public virtual object parameter3
-        {
-            get
-            {
-                return null;
-            }
-            set
-            {
-            }
-        }
-
-        public virtual object parameter4
-        {
-            get
-            {
-                return null;
-            }
-            set
-            {
-            }
-        }
 
         public bool useInFight
         {

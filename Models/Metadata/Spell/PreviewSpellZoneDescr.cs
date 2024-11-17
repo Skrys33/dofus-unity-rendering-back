@@ -1,4 +1,5 @@
 using dofus_unity_rendering_back.Models.Metadata.Effect;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 
 namespace dofus_unity_rendering_back.Models.Metadata.Spell
@@ -8,8 +9,8 @@ namespace dofus_unity_rendering_back.Models.Metadata.Spell
 
     public struct PreviewSpellZoneDescr
     {
-
-        public uint id;
+        [Key]
+        public uint id { get; set; }
 
         public SpellZoneDescr displayZoneDescr;
 

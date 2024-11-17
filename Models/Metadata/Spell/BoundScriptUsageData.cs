@@ -1,4 +1,6 @@
-﻿namespace dofus_unity_rendering_back.Models.Metadata.Spell
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace dofus_unity_rendering_back.Models.Metadata.Spell
 {
 
     [Serializable]
@@ -6,35 +8,36 @@
     {
         public const int SerialSequenceGroup = 0;
 
-        public int id;
+        [Key]
+        public int id { get; set; }
 
-        public int order;
+        public int order { get; set; }
 
-        public int scriptId;
+        public int scriptId { get; set; }
 
-        public List<uint> spellLevels;
+        public List<uint> spellLevels { get; set; }
 
-        public string criterion;
+        public string criterion { get; set; }
 
-        public string casterMask;
+        public string casterMask { get; set; }
 
-        public string targetMask;
+        public string targetMask { get; set; }
 
-        public string targetZone;
+        public string targetZone { get; set; }
 
-        public string activationMask;
+        public string activationMask { get; set; }
 
-        public string activationZone;
+        public string activationZone { get; set; }
 
-        public int random;
+        public int random { get; set; }
 
-        public int randomGroup;
+        public int randomGroup { get; set; }
 
-        public int sequenceGroup;
+        public int sequenceGroup { get; set; }
 
-        public bool isTargetTreatedAsCaster;
+        public bool isTargetTreatedAsCaster { get; set; }
 
-        public bool areTargetsAffectedConcurrently;
+        public bool areTargetsAffectedConcurrently { get; set; }
 
         public override string ToString()
         {

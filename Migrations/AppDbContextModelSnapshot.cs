@@ -22,6 +22,197 @@ namespace dofus_unity_rendering_back.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("MonstersSpells", b =>
+                {
+                    b.Property<int>("Monstersid")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("spellsDataid")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Monstersid", "spellsDataid");
+
+                    b.HasIndex("spellsDataid");
+
+                    b.ToTable("Spells", (string)null);
+                });
+
+            modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Effect.Effects", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("active")
+                        .HasColumnType("boolean");
+
+                    b.Property<short>("bonusType")
+                        .HasColumnType("smallint");
+
+                    b.Property<bool>("boost")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("category")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("characteristic")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("descriptionId")
+                        .HasColumnType("integer");
+
+                    b.Property<float>("effectPowerRate")
+                        .HasColumnType("real");
+
+                    b.Property<int>("effectPriority")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("elementId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("forceMinMax")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("hideValueInTooltip")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("iconId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("isInPercent")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("oppositeId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("showInSet")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("showInTooltip")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("theoreticalDescriptionId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("theoreticalPattern")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("useDice")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("useInFight")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("id");
+
+                    b.ToTable("EffectsRecords");
+                });
+
+            modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Effect.Instance.EffectInstanceDice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<short>("baseEffectId")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("category")
+                        .HasColumnType("integer");
+
+                    b.Property<byte>("delay")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("diceNum")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("diceSide")
+                        .HasColumnType("integer");
+
+                    b.Property<byte>("dispellable")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("duration")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("effectElement")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("effectId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("effectUid")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("forClientOnly")
+                        .HasColumnType("boolean");
+
+                    b.Property<short>("group")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("modificator")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("order")
+                        .HasColumnType("integer");
+
+                    b.Property<float>("random")
+                        .HasColumnType("real");
+
+                    b.Property<short>("spellId")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("targetId")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("targetMask")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("trigger")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("triggers")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("value")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("visibleInBuffUi")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("visibleInFightLog")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("visibleInTooltip")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("visibleOnTerrain")
+                        .HasColumnType("boolean");
+
+                    b.Property<byte>("zoneMinSize")
+                        .HasColumnType("smallint");
+
+                    b.Property<byte>("zoneShape")
+                        .HasColumnType("smallint");
+
+                    b.Property<byte>("zoneSize")
+                        .HasColumnType("smallint");
+
+                    b.Property<bool>("zoneStopAtTarget")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EffectInstanceDiceRecords");
+                });
+
             modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Monster.AnimFunMonsterData", b =>
                 {
                     b.Property<int>("animId")
@@ -30,7 +221,10 @@ namespace dofus_unity_rendering_back.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("animId"));
 
-                    b.Property<int?>("Monstersid")
+                    b.Property<int>("Monstersid")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Monstersid1")
                         .HasColumnType("integer");
 
                     b.Property<string>("animName")
@@ -45,7 +239,7 @@ namespace dofus_unity_rendering_back.Migrations
 
                     b.HasKey("animId");
 
-                    b.HasIndex("Monstersid");
+                    b.HasIndex("Monstersid1");
 
                     b.ToTable("AnimFunMonsterRecords");
                 });
@@ -330,11 +524,285 @@ namespace dofus_unity_rendering_back.Migrations
                     b.ToTable("MonstersRecords");
                 });
 
+            modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Spell.BoundScriptUsageData", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<string>("activationMask")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("activationZone")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("areTargetsAffectedConcurrently")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("casterMask")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("criterion")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("isTargetTreatedAsCaster")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("order")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("random")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("randomGroup")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("scriptId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("sequenceGroup")
+                        .HasColumnType("integer");
+
+                    b.Property<long[]>("spellLevels")
+                        .IsRequired()
+                        .HasColumnType("bigint[]");
+
+                    b.Property<string>("targetMask")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("targetZone")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("BoundScriptUsageDataRecords");
+                });
+
+            modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Spell.SpellLevels", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<short>("apCost")
+                        .HasColumnType("smallint");
+
+                    b.Property<bool>("castInDiagonal")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("castInLine")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("castTestLos")
+                        .HasColumnType("boolean");
+
+                    b.Property<short>("criticalHitProbability")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("globalCooldown")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("grade")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("hidden")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("hideEffects")
+                        .HasColumnType("boolean");
+
+                    b.Property<short>("initialCooldown")
+                        .HasColumnType("smallint");
+
+                    b.Property<byte>("maxCastPerTarget")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("maxCastPerTurn")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("maxStack")
+                        .HasColumnType("smallint");
+
+                    b.Property<byte>("minCastInterval")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("minPlayerLevel")
+                        .HasColumnType("smallint");
+
+                    b.Property<byte>("minRange")
+                        .HasColumnType("smallint");
+
+                    b.Property<bool>("needCellWithoutPortal")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("needFreeCell")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("needFreeTrapCell")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("needTakenCell")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("needVisibleEntity")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("playAnimation")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("portalProjectionForbidden")
+                        .HasColumnType("boolean");
+
+                    b.Property<byte>("range")
+                        .HasColumnType("smallint");
+
+                    b.Property<bool>("rangeCanBeBoosted")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("spellBreed")
+                        .HasColumnType("integer");
+
+                    b.Property<short>("spellId")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("statesCriterion")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("SpellLevelsRecords");
+                });
+
+            modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Spell.SpellVariants", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<int>("breedId")
+                        .HasColumnType("integer");
+
+                    b.Property<long[]>("spellIds")
+                        .IsRequired()
+                        .HasColumnType("bigint[]");
+
+                    b.HasKey("id");
+
+                    b.ToTable("SpellVariantsRecords");
+                });
+
+            modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Spell.Spells", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<string>("adminName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("bypassSummoningLimit")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("canAlwaysTriggerSpells")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("descriptionId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("hideCastConditions")
+                        .HasColumnType("boolean");
+
+                    b.Property<short>("iconId")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("nameId")
+                        .HasColumnType("integer");
+
+                    b.Property<byte>("order")
+                        .HasColumnType("smallint");
+
+                    b.Property<byte>("scriptId")
+                        .HasColumnType("smallint");
+
+                    b.Property<byte>("scriptIdCritical")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("scriptParams")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("scriptParamsCritical")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<long[]>("spellLevels")
+                        .IsRequired()
+                        .HasColumnType("bigint[]");
+
+                    b.Property<int>("typeId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("verboseCast")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("id");
+
+                    b.ToTable("SpellsRecords");
+                });
+
+            modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Translation.TranslatedLabel", b =>
+                {
+                    b.Property<int>("id")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("languageCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("label")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("id", "languageCode");
+
+                    b.ToTable("TranslatedLabelRecords");
+                });
+
+            modelBuilder.Entity("MonstersSpells", b =>
+                {
+                    b.HasOne("dofus_unity_rendering_back.Models.Metadata.Monster.Monsters", null)
+                        .WithMany()
+                        .HasForeignKey("Monstersid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("dofus_unity_rendering_back.Models.Metadata.Spell.Spells", null)
+                        .WithMany()
+                        .HasForeignKey("spellsDataid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Monster.AnimFunMonsterData", b =>
                 {
                     b.HasOne("dofus_unity_rendering_back.Models.Metadata.Monster.Monsters", null)
                         .WithMany("animFunList")
-                        .HasForeignKey("Monstersid");
+                        .HasForeignKey("Monstersid1");
                 });
 
             modelBuilder.Entity("dofus_unity_rendering_back.Models.Metadata.Monster.MonsterDrop", b =>

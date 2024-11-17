@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.InteropServices;
 using dofus_unity_rendering_back.Models.Metadata.Effect.Instance;
 using dofus_unity_rendering_back.Models.Metadata.Enums;
@@ -10,41 +12,45 @@ namespace dofus_unity_rendering_back.Models.Metadata.Spell
     {
         private SpellLevelFlags m_flags;
 
-        public int id;
+        [Key]
+        public int id { get; set; }
 
-        public short spellId;
+        [ForeignKey("Spells")]
+        public short spellId { get; set; }
 
-        public int grade;
+        public int grade { get; set; }
 
-        public ushort spellBreed;
+        public ushort spellBreed { get; set; }
 
-        public short apCost;
+        public short apCost { get; set; }
 
-        public byte minRange;
+        public byte minRange { get; set; }
 
-        public byte range;
+        public byte range { get; set; }
 
-        public short criticalHitProbability;
+        public short criticalHitProbability { get; set; }
 
-        public sbyte maxStack;
+        public sbyte maxStack { get; set; }
 
-        public sbyte maxCastPerTurn;
+        public sbyte maxCastPerTurn { get; set; }
 
-        public byte maxCastPerTarget;
+        public byte maxCastPerTarget { get; set; }
 
-        public byte minCastInterval;
+        public byte minCastInterval { get; set; }
 
-        public sbyte initialCooldown;
+        public sbyte initialCooldown { get; set; }
 
-        public sbyte globalCooldown;
+        public sbyte globalCooldown { get; set; }
 
-        public short minPlayerLevel;
+        public short minPlayerLevel { get; set; }
 
-        public string statesCriterion;
+        public string statesCriterion { get; set; }
 
-        public List<EffectInstanceDice> effects;
+        [NotMapped]
+        public List<EffectInstanceDice> effects { get; set; }
 
-        public List<EffectInstanceDice> criticalEffect;
+        [NotMapped]
+        public List<EffectInstanceDice> criticalEffect { get; set; }
 
         public List<PreviewSpellZoneDescr> previewZones;
 
