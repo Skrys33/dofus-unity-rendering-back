@@ -1047,10 +1047,13 @@ FodyWeavers.xsd
 
 # Docker
 .env
+<<<<<<< HEAD
 
 # Data 
 Data/*.json
 Data/**/*.json
 
+=======
+>>>>>>> bf0924cd350d0dd1686b922e0744256be69ea462
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Csharp,ASPNETCore,VisualStudio,c#
